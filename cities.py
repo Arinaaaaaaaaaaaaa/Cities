@@ -14,7 +14,7 @@ var.set(0)
 
 #Обробка вибору міста
 def change():
-    # Список файлів з інформацією про міста (додаємо також улюблені міста)
+    # Список файлів з інформацією про міста
     files = ['Київ.txt', 'Львів.txt', 'Дніпро.txt', 'Одеса.txt', 'Харків.txt']
     view(files[var.get()]) # Викликаємо відображення відповідного файлу
 
@@ -22,7 +22,7 @@ def change():
 def view(file_name):
     text1.delete(1.0, END)
     try:
-        with open(file_path, encoding='utf-8') as f:
+        with open(file_name, encoding='utf-8') as f:
             text1.insert(1.0, f.read())
     except FileNotFoundError:
         text1.insert(1.0, f"Файл '{file_name}' не знайдено.")
